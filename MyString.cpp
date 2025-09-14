@@ -28,6 +28,18 @@ String::String(const String& other) {
     strcpy(data, other.data);
 }
 
+String& String::operator=(const String& other)
+{
+    cout << "OPERATOR = " << endl;
+    if (this == &other) return *this;
+    delete[]data;
+    length = other.length;
+    data = new char[length + 1];
+    strcpy(data, other.data);
+    return *this;
+     // TODO: insert return statement here
+}
+
 String::~String() {
     delete[] data;
 }
@@ -46,7 +58,7 @@ const char* String::c_str() const {
 
 char String::at(int index) const {
     if (index < 0 || index >= length) {
-        cout << "Error\n";
+        cout << "Ошибка: индекс вне диапазона!\n";
         return '\0';
     }
     return data[index];
