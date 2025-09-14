@@ -6,7 +6,8 @@ private:
 public:
     String();                          
     String(const char* str);            
-    String(const String& other);       
+    String(const String& other);
+    String& operator=(const String& other);
     ~String();                          
 
     int size() const;                  
@@ -19,6 +20,6 @@ public:
     void clear();                     
     void append(const char* str);      
     void assign(const char* str);      
-    int find(char c) const;            
+    int find(char c) const;   
     void print();              
 };
